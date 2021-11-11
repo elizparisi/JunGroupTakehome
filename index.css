@@ -1,0 +1,10 @@
+body {
+  background: #000;
+  /* for testing */
+  color: #fff;
+}
+
+.logo {
+  width: 15%;
+  height: 15%;
+}
