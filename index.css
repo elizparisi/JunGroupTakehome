@@ -1,7 +1,13 @@
 body {
-  background: #000;
   /* for testing */
-  color: #fff;
+  /* color: #fff; */
+  /* background-image: url(images/BelluminatiLogo.jpg); */
+  /* background-repeat: no-repeat;
+  background-size: cover;
+  display: block;
+  background-position: center; */
+  background: #000;
+  width: auto;
 }
 
 .logo {
@@ -9,36 +15,57 @@ body {
   height: 15%;
 }
 
+.belluminati {
+  width: 100%
+}
+
 .marketing-copy {
-  font-family: 'Montagu Slab', serif;
-  color: #6ba1a1;
-  /* more colors- #7cc1a5, */
+  font-family: 'Orbitron', sans-serif;
+  color: #8725AC;
+  text-align: center;
+  /* more colors- #7cc1a5, #067d73- original color #6ba1a1, #8725AC*/
+
+}
+
+.marketing-copy p {
+  font-size: 20px;
+}
+
+.bold-text {
+  font-weight: 900;
+}
+
+.call-to-action {
+  margin: 150px 50px;
+  padding: 25px;
+  text-align: center;
+
 }
 
 .call-to-action a {
-  font-family: 'Montagu Slab', serif;
+  font-family: 'Orbitron', sans-serif;
   font-size: 1.5rem;
   padding: 1rem 3rem;
-  color: #7cc1a5;
+  color: #067d73;
   text-transform: uppercase;
 }
 
 .button {
   text-decoration: none;
-  border: 1px solid rgb(146, 148, 248);
+  border: 1px solid rgb(138, 39, 175);
   position: relative;
   overflow: hidden;
 }
 
 .button:hover {
-  box-shadow: 1px 1px 25px 10px rgba(146, 148, 248, 0.4);
+  box-shadow: 1px 1px 25px 10px rgba(138, 39, 175, 0.4);
 }
 
 .button:before {
   content: "";
   position: absolute;
   top: 0;
-  left: -100%;
+  left: -15%;
   width: 100%;
   height: 100%;
   background: linear-gradient(
@@ -52,4 +79,160 @@ body {
 
 .button:hover:before {
   left: 15%;
+}
+
+/* follow on social paragraph */
+
+.social-paragraph {
+  font-family: 'Orbitron', sans-serif;
+  color: #067d73;
+  text-align: center;
+}
+
+/* social buttons */
+
+.social {
+  color: #067d73;
+  margin: 0px 50px;
+  padding-right: 25px;
+  display: inline-block;
+  text-align: center;
+  width: 90%;
+}
+
+.fa {
+  margin: 50px;
+  padding: 20px;
+  font-size: 30px;
+  width: 20px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 60%;
+}
+
+/* Facebook */
+.fa-facebook {
+  background: #3B5998;
+  color: #fff;
+}
+
+/* Youbube */
+.fa-youtube {
+  background: #b31217;
+  color: #fff;
+}
+
+/* Twitter */
+.fa-twitter {
+  background: #55ACEE;
+  color: #fff;
+}
+
+/* testing glitch */
+
+.container {
+  color: var(--color);
+  font-size: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.stack {
+  color: #8725AC;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.stack span {
+  font-weight: bold;
+  grid-row-start: 1;
+  grid-column-start: 1;
+  font-size: 4rem;
+  --stack-height: calc(100% / var(--stacks) - 1px);
+  --inverse-index: calc(calc(var(--stacks) - 1) - var(--index));
+  --clip-top: calc(var(--stack-height) * var(--index));
+  --clip-bottom: calc(var(--stack-height) * var(--inverse-index));
+  clip-path: inset(var(--clip-top) 0 var(--clip-bottom) 0);
+  animation: stack 340ms cubic-bezier(.46,.29,0,1.24) 1 backwards calc(var(--index) * 120ms), glitch 2s ease infinite 2s alternate-reverse;
+}
+
+.stack span:nth-child(odd) { --glitch-translate: 8px; }
+.stack span:nth-child(even) { --glitch-translate: -8px; }
+
+@keyframes stack {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%);
+    text-shadow: -2px 3px 0 red, 2px -3px 0 blue;
+  };
+  60% {
+    opacity: 0.5;
+    transform: translateX(50%);
+  }
+  80% {
+    transform: none;
+    opacity: 1;
+    text-shadow: 2px -3px 0 red, -2px 3px 0 blue;
+  }
+  100% {
+    text-shadow: none;
+  }
+}
+
+@keyframes glitch {
+  0% {
+    text-shadow: -2px 3px 0 red, 2px -3px 0 blue;
+    transform: translate(var(--glitch-translate));
+  }
+  2% {
+    text-shadow: 2px -3px 0 red, -2px 3px 0 blue;
+  }
+  4%, 100% {  text-shadow: none; transform: none; }
+}
+
+/* media query for iphonex */
+
+@media screen and (min-width: 375px) and (max-width: 812px) {
+
+  .call-to-action {
+    width: 75%;
+    text-align: left;
+  }
+
+  .call-to-action a {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.5rem;
+    padding: 1rem 3rem;
+    color: #067d73;
+    text-transform: uppercase;
+  }
+
+  .button {
+    text-decoration: none;
+    border: 1px solid rgb(138, 39, 175);
+    position: absolute;
+    overflow: hidden;
+    margin-right: 45px;
+  }
+
+  .social {
+    color: #067d73;
+    margin-left: 75px;
+    padding: 0 25px;
+    display: inline-block;
+    text-align: center;
+    width: 50%;
+    border: 2px solid red;
+    width: 60%;
+  }
+
+  .fa {
+    margin: 15px;
+    padding: 15px;
+    font-size: 15px;
+    width: 15px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 60%;
+  }
 }
